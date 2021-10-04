@@ -1,0 +1,17 @@
+provider "aws" {
+  access_key = "AKIAWPLC3GCZZ3WRLG4S"
+  secret_key = "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"
+  region = "ap-south-1"
+}
+
+resource "aws_instance" "myec2" {
+   ami = "ami-0a23ccb2cdd9286bb"
+   instance_type = "t2.micro"
+   key_name = "akhil"
+   root_block_device {
+    delete_on_termination = "true"
+    volume_size           = 8
+    volume_type           = "gp2"
+  }
+
+}
